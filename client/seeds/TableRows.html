@@ -1,0 +1,19 @@
+<template name="TableRows">
+  <tr>
+    <td>
+      <input id="plantedCheckbox" type="checkbox" data-plantid="{{uniquePlant}}" checked="{{planted}}">
+    </td>
+    <td>{{seedName}}</td>
+    <td>{{numberDays}}</td>
+    <td>{{formatDate plantingDate}}</td>
+    {{#if numberDays }}
+      {{#if pastReady plantingDate numberDays }}
+        <td class="ready">{{ readyDate plantingDate numberDays}}</td>
+      {{else}}
+        <td>{{ readyDate plantingDate numberDays}}</td>
+      {{/if}}
+    {{else}}
+        <td>Maturation days needed!</td>
+    {{/if}}
+  </tr>
+</template>

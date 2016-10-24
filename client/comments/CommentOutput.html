@@ -1,0 +1,11 @@
+<template name="CommentOutput">
+  <div class="comment-name">
+    {{#if commentDate}}
+    <div class="pull-right">{{formatDateTime commentDate}}</div>
+    {{/if}}
+    {{name}}
+  </div>
+  <div class="comment-comment">
+    {{comment}}
+  </div>
+</template>

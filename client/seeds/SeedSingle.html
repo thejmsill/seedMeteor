@@ -1,0 +1,41 @@
+<template name="SeedSingle">
+  <div class="icons pull-right">
+    <span>{{ seed.votes }}</span>
+    {{#if authorContent seed.author}}
+      <i class="fa fa-pencil"></i>
+      <i class="fa fa-trash"></i>
+    {{else}}
+      <i class="fa fa-thumbs-up"></i>
+      <i class="fa fa-thumbs-down"></i>
+    {{/if}}
+  </div>
+  <h1>{{seed.name}}</h1>
+  <div class="description">{{ seed.description }}</div>
+
+  {{#if seedsExist seed}}
+      <table class="table">
+        {{> TableHeaders }}
+        <tbody>
+        {{#each seed.seeds }}
+          {{> TableRows}}
+        {{/each}}
+        </tbody>
+      </table>
+  {{/if}}
+
+  <a class="showFrostData">See Frost Data for your area</a>
+  {{> frostCities}}
+
+  <h2 id="comments">Comments</h2>
+  <div class="commentArea">
+    {{> Comments}}
+    {{#if $.Session.get 'commentMode'}}
+      <div class="icons pull-right">
+        <i class="fa fa-close"></i>
+      </div>
+      {{> commentForm}}
+    {{else}}
+      <button class="comment">New comment</button>
+    {{/if}}
+  </div>
+</template>

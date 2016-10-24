@@ -1,0 +1,18 @@
+<template name="commentForm">
+  <div class="commentForm">
+    <h3>Enter your comment below</h3>
+    <form class="newcomment">
+      <div class="">
+        {{#if users.profile.name}}
+        {{users.profile.name}}
+        {{else}}
+        <input name="name" id="name" placeholder="Name" type="text" required>
+        {{/if}}
+      </div>
+      <div class="">
+        <textarea name="comment" id="comment" placeholder="Comment..." rows="4" cols="50" required></textarea>
+      </div>
+      <button class="submit" type="submit" value="Submit">Submit</button>
+    </form>
+  </div>
+</template>

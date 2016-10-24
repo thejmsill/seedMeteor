@@ -1,0 +1,7 @@
+<template name="Comments">
+  {{#each comments}}
+    <div class="comment-block {{zebra @index}}">
+        {{> CommentOutput }}
+    </div>
+  {{/each}}
+</template>

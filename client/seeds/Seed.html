@@ -1,0 +1,29 @@
+<template name="Seed">
+  <article class="seed">
+    {{#if editMode}}
+      <div class="close-block pull-right">
+        <i class="fa fa-close"></i>
+      </div>
+      {{#autoForm collection="Seeds" id="updateSeedId" type="update-pushArray" doc=this autosave=true}}
+        {{> afQuickField name="name"}}
+        {{> afQuickField name="description"}}
+        {{> afQuickField name="seeds"}}
+        <div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-default cancel">Cancel</button>
+        </div>
+      {{/autoForm}}
+    {{else}}
+      <div class="utils">
+        {{> icons}}
+        <i class="fa fa-thumbs-up"></i>
+        <h2><a href="/list/{{_id}}">{{name}}</a></h2>
+      </div>
+      <div class="extrainfo">
+        <div class="desc">{{description}}</div>
+          {{> SeedTable }}
+      </div>
+    {{/if}}
+    <a href="/list/{{_id}}#comments">There are {{commentCount}} comments.</a>
+  </article>
+</template>
