@@ -78,15 +78,11 @@ seeds = new SimpleSchema({
   }
 });
 
-votingId = new SimpleSchema({
-  userUnique: {
-    type: String,
-    optional: true,
-    defaultValue: function () {
-      return Meteor.userId();
-    },
-  }
-});
+// const votingIds = new SimpleSchema({
+//   userUnique: {
+//     type: String,
+//   }
+// });
 
 ListSchema = new SimpleSchema({
   name: {
@@ -121,7 +117,14 @@ ListSchema = new SimpleSchema({
     }
   },
   votingIds: {
-    type: [votingId],
+    type: [Object],
+  },
+  "votingIds.$.userUnique": {
+    type: String,
+    optional: true,
+    defaultValue: function () {
+      return Meteor.userId();
+    },
   },
   votes: {
     type: Number,
@@ -136,30 +139,20 @@ Meteor.methods({
   deleteSeed: function(id) {
     Seeds.remove(id);
   },
-  // thumbsUp: function(id, voter) {
-    // console.log(voter,'UP this is voter', id);
-    // Seeds.update(id, {$set: {'votes': 1}});
-    // Seeds.update(id, {$set: {'userUnique': 1}});
-    // Seeds.update(
-    //   {"_id": id},
-    //   { $addToSet: {'userUnique': voter},
-    //   // {$push: {"userid": '1'}
-    // });
-    // Seeds.update(
-    //   {'_id':id}, {
-    //   $push: {
-    //     'userid': voter
-    //   }
-    // });
-  // },
-  thumbsDown: function(id, voter) {
-    console.log(voter,'DOWN this is voter', id);
+  thumbsUp: function(id, voter) {
+    Seeds.update(id, {
+      $inc: {
+        'votes': +1
+      }
+    });
     Seeds.update({'_id':id}, {$addToSet: {'userUnique': voter}});
-    // Seeds.update(id, {
-    //   $inc: {
-    //     'votes': -1
-    //   }
-    // });
+  },
+  thumbsDown: function(id, voter) {
+    Seeds.update(id, {
+      $inc: {
+        'votes': -1
+      }
+    });
   },
   plantedItem: function(id, currentState) {
     Seeds.update(

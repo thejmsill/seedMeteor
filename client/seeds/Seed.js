@@ -6,7 +6,6 @@ Template.Seed.onCreated(function() {
   });
 });
 
-
 Template.Seed.helpers({
   updateSeedId: function() {
     return this._id;
@@ -30,8 +29,8 @@ Template.Seed.events({
     template.editMode.set(!template.editMode.get());
   },
   'click .fa-thumbs-up': function() {
-    console.log('thumbup', this._id, Meteor.userId());
     Meteor.call('thumbsUp', this._id, Meteor.userId());
+    Meteor.call('logUser', )
   },
   'click .fa-thumbs-down': function() {
     Meteor.call('thumbsDown', this._id, Meteor.userId());

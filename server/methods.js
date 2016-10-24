@@ -28,11 +28,5 @@ Meteor.methods({
       var errorJson = JSON.parse(result.content);
       throw new Meteor.Error(result.statusCode, errorJson.error);
     }
-  },
-  thumbsUp: function(id, voter) {
-    console.log(voter, 'UP this is voter', id);
-    // Seeds.update(id, {$set: {'votes': 1}});
-    Seeds.update({'_id':id}, {$set: {'userUnique': 1}},{validate: false});
-    // Seeds.update(
   }
 });
