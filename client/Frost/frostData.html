@@ -1,0 +1,25 @@
+<template name="frostData">
+  {{#if frostData.length}}
+  <div class="FrostData">
+    <table class="table">
+      <thead><th>Threshold</th><th>90%</th><th>80%</th><th>70%</th><th>60%</th><th>50%</th><th>40%</th><th>30%</th><th>20%</th><th>10%</th></thead>
+      <tbody>
+      {{#each frostData}}
+      <tr>
+        <td>{{temperature_threshold}} &deg; F</td>
+        <td>{{StringToDate prob_90 1}}</td>
+        <td>{{StringToDate prob_80 1}}</td>
+        <td>{{StringToDate prob_70 1}}</td>
+        <td>{{StringToDate prob_60 1}}</td>
+        <td>{{StringToDate prob_50 1}}</td>
+        <td>{{StringToDate prob_40 1}}</td>
+        <td>{{StringToDate prob_30 1}}</td>
+        <td>{{StringToDate prob_20 1}}</td>
+        <td>{{StringToDate prob_10 1}}</td>
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+</template>

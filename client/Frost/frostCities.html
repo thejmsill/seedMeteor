@@ -1,37 +1,19 @@
 <template name="frostCities">
   <div id="frostCitiesData">
-  Now click on a location to see the frost data.
-  <table class="table" id="FrostCities">
-    <thead><tr><th>City</th><th>Distance (Miles)</th></tr></thead><tbody>
-    {{#each frostLocation}}
-      <tr class="frostCityData">
-        <td class="nameLoc" data-id="{{id}}">{{name}}</td>
-        <td class="citydistance">{{round distance}} Miles away</td>
-      </tr>
-    {{/each}}
-  </tbody></table></div>
+    {{#if frostLocation.length}}
+      Now click on a location to see the frost data.
+      <table class="table" id="FrostCities">
+        <thead><tr><th>City</th><th>Distance (Miles)</th></tr></thead><tbody>
+        {{#each frostLocation}}
+          <tr class="frostCityData">
+            <td class="nameLoc" data-id="{{id}}">{{name}}</td>
+            <td class="citydistance">{{round distance}} Miles away</td>
+          </tr>
+        {{/each}}
+      </tbody></table>
+    {{else}}
+      <div class="warning">Sorry - your area has no frost data. Probably because you're not in the USA!</div>
+    {{/if}}
+  </div>
 </template>
 
-<!--{{#if frostData.length}}-->
-<!--<div class="FrostData">-->
-  <!--<table class="table">-->
-    <!--<thead><th>Threshold</th><th>90%</th><th>80%</th><th>70%</th><th>60%</th><th>50%</th><th>40%</th><th>30%</th><th>20%</th><th>10%</th></thead>-->
-    <!--<tbody>-->
-    <!--{{#each frostData}}-->
-    <!--<tr>-->
-      <!--<td>{{temperature_threshold}} &deg; F</td>-->
-      <!--<td>{{StringToDate prob_90 1}}</td>-->
-      <!--<td>{{StringToDate prob_80 1}}</td>-->
-      <!--<td>{{StringToDate prob_70 1}}</td>-->
-      <!--<td>{{StringToDate prob_60 1}}</td>-->
-      <!--<td>{{StringToDate prob_50 1}}</td>-->
-      <!--<td>{{StringToDate prob_40 1}}</td>-->
-      <!--<td>{{StringToDate prob_30 1}}</td>-->
-      <!--<td>{{StringToDate prob_20 1}}</td>-->
-      <!--<td>{{StringToDate prob_10 1}}</td>-->
-    <!--</tr>-->
-    <!--{{/each}}-->
-    <!--</tbody>-->
-  <!--</table>-->
-<!--</div>-->
-<!--{{/if}}-->

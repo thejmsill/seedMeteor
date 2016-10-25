@@ -10,6 +10,7 @@
     {{/if}}
   </div>
   <h1>{{seed.name}}</h1>
+  <div class="small-meta">Created: {{formatDate createAt}}</div>
   <div class="description">{{ seed.description }}</div>
 
   {{#if seedsExist seed}}
@@ -22,9 +23,6 @@
         </tbody>
       </table>
   {{/if}}
-
-  <a class="showFrostData">See Frost Data for your area</a>
-  {{> frostCities}}
 
   <h2 id="comments">Comments</h2>
   <div class="commentArea">

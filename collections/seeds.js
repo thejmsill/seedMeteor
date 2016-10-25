@@ -117,7 +117,8 @@ ListSchema = new SimpleSchema({
     }
   },
   votingIds: {
-    type: [Object],
+    type: [String],
+    blackbox: true
   },
   "votingIds.$.userUnique": {
     type: String,

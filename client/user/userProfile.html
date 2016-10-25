@@ -1,13 +1,13 @@
 <template name="userProfile">
   <div class="fullProfile">
     {{> allicons}}
-    Welcome back!
+    <h1>Hi {{name}}</h1>
+      I was going to add stuff here but haven't yet.
   </div>
-  {{user._id}}
 
-  <form id="formID">
-    <input type="text" id="profilename">
-    <button id="saveButton">Save</button>
-  </form>
+  <a class="showFrostData">See Frost Data for your area</a>
+  {{> frostCities}}
+  {{> frostData}}
+
 
 </template>

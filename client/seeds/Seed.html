@@ -1,5 +1,4 @@
 <template name="Seed">
-  <article class="seed">
     {{#if editMode}}
       <div class="close-block pull-right">
         <i class="fa fa-close"></i>
@@ -16,14 +15,12 @@
     {{else}}
       <div class="utils">
         {{> icons}}
-        <i class="fa fa-thumbs-up"></i>
         <h2><a href="/list/{{_id}}">{{name}}</a></h2>
+        <div class="small-meta">{{formatDate createdAt}} - {{commentCount}} comments</div>
       </div>
       <div class="extrainfo">
         <div class="desc">{{description}}</div>
           {{> SeedTable }}
       </div>
     {{/if}}
-    <a href="/list/{{_id}}#comments">There are {{commentCount}} comments.</a>
-  </article>
 </template>

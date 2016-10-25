@@ -21,6 +21,20 @@ article.seed {
   border-bottom: 1px solid #CCC;
   margin-bottom: 40px;
   padding-bottom: 20px;
+  padding: 30px;
+  &.odd {
+    background: #f9f7f7;
+  }
+}
+
+.utils h2 {
+  margin-bottom: 2px;
+}
+
+.small-meta {
+  font-size: 12px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #ccc;
 }
 
 .seed-promo {
@@ -182,6 +196,22 @@ table.table {
   cursor: pointer;
 }
 
+.login-wrap.navbar-form {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.currentuser, .login-link-text {
+  color: #FFF;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  display: block;
+  &:hover {
+    opacity: 0.8;
+    color: #FFF;
+  }
+}
+
 .list-group-item.autoform-array-item .autoform-array-item-body {
   display: inline-block;
   vertical-align: top;
@@ -192,4 +222,10 @@ table.table {
   float: right;
   text-align: right;
   width: 22%;
+}
+
+.fullProfile {
+  border-bottom: 1px solid #eaeaea;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
 }

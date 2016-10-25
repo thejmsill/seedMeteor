@@ -18,7 +18,11 @@
             <li class="active"><a href="/my-seeds">My Seed List</a></li>
           {{/if}}
         </ul>
-        <div class="navbar-right navbar-form login-wrap">{{> loginButtons}}</div>
+        {{#if currentUser}}
+          <a href="/user" class="pull-right currentuser">Profile</a>
+        {{else}}
+          <div class="navbar-right navbar-form login-wrap">{{> loginButtons}}</div>
+        {{/if}}
       </div><!--/.nav-collapse -->
     </div>
   </nav>

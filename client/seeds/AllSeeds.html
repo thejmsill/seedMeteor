@@ -1,7 +1,9 @@
 <template name="AllSeeds">
   <section class="allSeedsList">
     {{#each allseeds}}
-    {{> Seed}}
+      <article class="seed {{zebra @index}}">
+        {{> Seed}}
+      </article>
     {{/each}}
   </section>
 </template>
